@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Music, Utensils, MessageCircle, MapPin, Calendar, PlayCircle, ChevronRight, Navigation } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 import dataTradisi from '../data/tradisi.json';
 import dataWisata from '../data/wisata.json';
 import dataKuliner from '../data/kuliner.json';
@@ -54,6 +55,35 @@ const Home = () => {
     "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=800&auto=format&fit=crop"  // Representasi Candi Batujaya
   ];
 
+  // Data Statistik (Baru ditambahkan)
+  const dataKunjungan = [
+    { tahun: '2019', domestik: 4000, mancanegara: 2400 },
+    { tahun: '2020', domestik: 1500, mancanegara: 800 },
+    { tahun: '2021', domestik: 2000, mancanegara: 980 },
+    { tahun: '2022', domestik: 2780, mancanegara: 1908 },
+    { tahun: '2023', domestik: 3890, mancanegara: 4800 },
+    { tahun: '2024', domestik: 4390, mancanegara: 5800 },
+  ];
+
+  const dataSeni = [
+    { name: 'Tari Tradisional', value: 35 },
+    { name: 'Seni Pertunjukan', value: 25 },
+    { name: 'Musik Daerah', value: 20 },
+    { name: 'Kriya & Anyaman', value: 20 },
+  ];
+
+  const dataEkonomi = [
+    { bulan: 'Jan', umkm: 1200 },
+    { bulan: 'Feb', umkm: 2100 },
+    { bulan: 'Mar', umkm: 1800 },
+    { bulan: 'Apr', umkm: 2780 },
+    { bulan: 'Mei', umkm: 3890 },
+    { bulan: 'Jun', umkm: 4390 },
+    { bulan: 'Jul', umkm: 5490 },
+  ];
+
+  const PIE_COLORS = ['#8b5e34', '#c9a227', '#2e4c32', '#dcd3b6']; // Cokelat, Emas, Hijau, Krem
+
   return (
     <div className="bg-krem min-h-screen overflow-hidden">
       {/* 1. HERO SECTION */}
@@ -68,7 +98,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-cokelat/80 via-cokelat/50 to-krem"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto -mt-6 md:-mt-16">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto pt-24 sm:pt-32 pb-16">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -434,6 +464,104 @@ const Home = () => {
               <h5 className="text-lg md:text-xl font-bold mb-2">Abad Peradaban</h5>
               <p className="text-krem/80 text-sm md:text-base">Kompleks Candi Batujaya bukti peninggalan peradaban tertua di Jawa Barat.</p>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6.5 DATA STATISTIK BUDAYA & PARIWISATA (NEW) */}
+      <section className="py-16 md:py-24 bg-krem relative overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <h2 className="text-hijau font-bold tracking-widest uppercase text-xs md:text-sm mb-2">Statistik Daerah</h2>
+            <h3 className="font-playfair text-3xl md:text-5xl text-cokelat font-bold mb-4 md:mb-6">Perkembangan Pariwisata</h3>
+            <div className="w-24 h-1 bg-emas mx-auto rounded-full mb-6"></div>
+            <p className="text-base md:text-lg text-cokelat/80 max-w-2xl mx-auto">
+              Data interaktif yang menunjukkan pertumbuhan pesat sektor pariwisata, keragaman seni budaya, dan ekonomi kreatif di Kabupaten Karawang.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            {/* Bar Chart - Kunjungan Wisatawan */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+              className="bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-emas/10"
+            >
+              <h4 className="font-playfair text-xl md:text-2xl font-bold text-cokelat mb-6 text-center">Tren Kunjungan Wisatawan</h4>
+              <div className="h-[300px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={dataKunjungan} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" vertical={false} />
+                    <XAxis dataKey="tahun" tick={{fill: '#8b5e34', fontSize: 12}} axisLine={false} tickLine={false} />
+                    <YAxis tick={{fill: '#8b5e34', fontSize: 12}} axisLine={false} tickLine={false} />
+                    <RechartsTooltip cursor={{fill: '#fcfaf5'}} contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'}} />
+                    <Legend iconType="circle" wrapperStyle={{fontSize: '12px', paddingTop: '10px'}} />
+                    <Bar dataKey="domestik" name="Domestik" fill="#2e4c32" radius={[4, 4, 0, 0]} />
+                    <Bar dataKey="mancanegara" name="Mancanegara" fill="#c9a227" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </motion.div>
+
+            {/* Pie Chart - Proporsi Seni & Area Chart */}
+            <div className="grid grid-rows-2 gap-8">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{delay: 0.2}}
+                className="bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-emas/10 flex flex-col md:flex-row items-center gap-6"
+              >
+                <div className="w-full md:w-1/2 h-[200px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie data={dataSeni} cx="50%" cy="50%" innerRadius={60} outerRadius={80} paddingAngle={5} dataKey="value">
+                        {dataSeni.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={PIE_COLORS[index % PIE_COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <RechartsTooltip contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'}} />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="w-full md:w-1/2 text-center md:text-left">
+                  <h4 className="font-playfair text-xl font-bold text-cokelat mb-4">Distribusi Sanggar Seni</h4>
+                  <ul className="space-y-3">
+                    {dataSeni.map((item, idx) => (
+                      <li key={idx} className="flex items-center justify-center md:justify-start gap-3 text-sm text-cokelat/80">
+                        <span className="w-3 h-3 rounded-full shrink-0" style={{backgroundColor: PIE_COLORS[idx]}}></span>
+                        <span className="flex-grow text-left">{item.name}</span>
+                        <span className="font-bold">{item.value}%</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{delay: 0.4}}
+                className="bg-white p-6 md:p-8 rounded-3xl shadow-lg border border-emas/10"
+              >
+                <h4 className="font-playfair text-lg font-bold text-cokelat mb-4 text-center">Pertumbuhan Ekraf (UMKM) 2024</h4>
+                <div className="h-[150px] w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={dataEkonomi} margin={{ top: 5, right: 0, left: -20, bottom: 0 }}>
+                      <defs>
+                        <linearGradient id="colorUmkm" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#8b5e34" stopOpacity={0.3}/>
+                          <stop offset="95%" stopColor="#8b5e34" stopOpacity={0}/>
+                        </linearGradient>
+                      </defs>
+                      <XAxis dataKey="bulan" tick={{fill: '#8b5e34', fontSize: 10}} axisLine={false} tickLine={false} />
+                      <YAxis tick={{fill: '#8b5e34', fontSize: 10}} axisLine={false} tickLine={false} />
+                      <RechartsTooltip contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'}} />
+                      <Area type="monotone" dataKey="umkm" stroke="#8b5e34" strokeWidth={3} fillOpacity={1} fill="url(#colorUmkm)" />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
