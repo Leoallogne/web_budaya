@@ -1,0 +1,8 @@
+[
+  { "id": 1, "nama": "Soto Karawang", "kategori": "Makanan Utama", "deskripsi": "Soto legendaris dengan kuah kuning rempah yang khas, potongan daging sapi, taburan daun bawang, dan dinikmati dengan emping.", "image": "/images/soto.jpg" },
+  { "id": 2, "nama": "Pepes Ikan Mas", "kategori": "Makanan Utama", "deskripsi": "Ikan mas segar yang dibumbui rempah kaya, dibungkus daun pisang, dan dikukus perlahan hingga bumbu meresap ke dalam daging.", "image": "/images/pepes.jpg" },
+  { "id": 3, "nama": "Karedok", "kategori": "Sayuran", "deskripsi": "Salad tradisional Sunda berisi sayuran mentah segar seperti kacang panjang, tauge, kol, dan terong dengan bumbu kacang pedas manis.", "image": "/images/karedok.jpg" },
+  { "id": 4, "nama": "Gemblong", "kategori": "Camilan", "deskripsi": "Jajanan manis dari tepung ketan yang digoreng dan dilapisi karamel gula merah, teksturnya kenyal dan manis di luar.", "image": "/images/gemblong.jpg" },
+  { "id": 5, "nama": "Dodol Karawang", "kategori": "Camilan", "deskripsi": "Kudapan manis tradisional berbahan dasar tepung ketan, gula aren, dan santan yang dimasak lama hingga kenyal dan tahan lama.", "image": "/images/dodol.jpg" },
+  { "id": 6, "nama": "Es Cendol", "kategori": "Minuman", "deskripsi": "Minuman penyegar tenggorokan dari tepung beras, disajikan dengan kuah santan gurih, sirup gula aren, dan es batu.", "image": "/images/cendol.jpg" }
+]

@@ -1,0 +1,25 @@
+{
+  "kosakata": [
+    { "id": 1, "kata": "Sampurasun", "arti": "Salam hormat/Permisi (dijawab: Rampes)" },
+    { "id": 2, "kata": "Kumaha", "arti": "Bagaimana" },
+    { "id": 3, "kata": "Damang", "arti": "Sehat/Baik" },
+    { "id": 4, "kata": "Nuhun", "arti": "Terima kasih" },
+    { "id": 5, "kata": "Punten", "arti": "Permisi/Maaf" },
+    { "id": 6, "kata": "Sae", "arti": "Bagus/Baik" },
+    { "id": 7, "kata": "Pisan", "arti": "Sangat/Sekali" },
+    { "id": 8, "kata": "Hatur Nuhun", "arti": "Terima kasih banyak" },
+    { "id": 9, "kata": "Dahar", "arti": "Makan" },
+    { "id": 10, "kata": "Sare", "arti": "Tidur" },
+    { "id": 11, "kata": "Cai", "arti": "Air" },
+    { "id": 12, "kata": "Bumi", "arti": "Rumah" },
+    { "id": 13, "kata": "Ulin", "arti": "Bermain" },
+    { "id": 14, "kata": "Kasep", "arti": "Tampan" },
+    { "id": 15, "kata": "Geulis", "arti": "Cantik" }
+  ],
+  "upacara": [
+    { "id": 1, "nama": "Ngarot", "waktu": "Menjelang musim tanam", "deskripsi": "Upacara adat menyambut musim tanam padi, biasanya diikuti oleh muda-mudi yang didandani pakaian tradisional untuk memupuk kebersamaan." },
+    { "id": 2, "nama": "Sedekah Bumi", "waktu": "Setelah panen raya", "deskripsi": "Bentuk rasa syukur masyarakat agraris Karawang kepada Tuhan atas hasil bumi yang melimpah, diisi dengan doa bersama dan makan bersama." },
+    { "id": 3, "nama": "Mapag Sri", "waktu": "Menjelang panen", "deskripsi": "Ritual menyambut datangnya panen padi (Dewi Sri). Masyarakat mengadakan selamatan di persawahan memohon keselamatan dan kelancaran panen." },
+    { "id": 4, "nama": "Hajat Laut", "waktu": "Bulan Muharram/Suro", "deskripsi": "Upacara syukuran para nelayan di pesisir utara Karawang dengan melepaskan sesaji ke laut sebagai ungkapan terima kasih dan tolak bala." }
+  ]
+}

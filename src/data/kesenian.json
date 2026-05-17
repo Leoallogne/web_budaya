@@ -1,0 +1,8 @@
+[
+  { "id": 1, "nama": "Tari Jaipong", "kategori": "Tarian", "deskripsi": "Tarian tradisional Sunda yang lahir di Karawang, diciptakan oleh H. Suanda. Menggabungkan unsur pencak silat, wayang golek, dan ketuk tilu.", "image": "/images/jaipong.jpg" },
+  { "id": 2, "nama": "Topeng Banjet", "kategori": "Pertunjukan", "deskripsi": "Seni pertunjukan rakyat perpaduan antara seni tari, lawakan, dan musik tradisional yang sangat populer di kalangan masyarakat agraris Karawang.", "image": "/images/banjet.jpg" },
+  { "id": 3, "nama": "Wayang Golek", "kategori": "Pertunjukan", "deskripsi": "Seni pertunjukan boneka kayu warisan budaya Sunda yang menceritakan epos Ramayana dan Mahabharata dengan iringan gamelan.", "image": "/images/wayang.jpg" },
+  { "id": 4, "nama": "Degung Sunda", "kategori": "Musik", "deskripsi": "Ansambel musik tradisional Sunda yang menggunakan instrumen gamelan, sering dimainkan untuk upacara adat atau penyambutan tamu.", "image": "/images/degung.jpg" },
+  { "id": 5, "nama": "Calung", "kategori": "Musik", "deskripsi": "Alat musik perkusi bambu tradisional yang dimainkan dengan cara dipukul sesuai tangga nada pentatonik Sunda.", "image": "/images/calung.jpg" },
+  { "id": 6, "nama": "Anyaman Bambu", "kategori": "Kerajinan", "deskripsi": "Kerajinan tangan tradisional yang diwariskan turun-temurun untuk membuat perabot rumah tangga seperti boboko, nyiru, dan bilik.", "image": "/images/anyaman.jpg" }
+]
