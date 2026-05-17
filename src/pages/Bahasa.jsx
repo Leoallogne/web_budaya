@@ -42,7 +42,7 @@ const Bahasa = () => {
                 <MessageSquareText size={48} />
               </div>
             </div>
-            <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-4 drop-shadow-xl">
+            <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-4 drop-shadow-xl">
               Bahasa & <span className="text-emas">Tradisi</span>
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-jakarta max-w-2xl mx-auto leading-relaxed">

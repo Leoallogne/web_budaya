@@ -23,7 +23,7 @@ const Kuliner = () => {
                 <Utensils size={40} />
               </div>
             </div>
-            <h1 className="font-playfair text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-4 drop-shadow-2xl">
+            <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-4 drop-shadow-2xl">
               Kuliner <span className="text-emas">Khas</span>
             </h1>
             <p className="text-lg md:text-2xl text-white/90 font-jakarta max-w-2xl mx-auto leading-relaxed">

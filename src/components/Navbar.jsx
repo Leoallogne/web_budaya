@@ -55,41 +55,57 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-krem hover:text-emas focus:outline-none"
+              onClick={() => setIsOpen(true)}
+              className="text-krem hover:text-emas focus:outline-none bg-white/5 p-2 rounded-lg border border-white/10 hover:bg-white/10 transition-colors"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              <Menu size={24} />
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Sidebar */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-cokelat border-t border-emas/20 overflow-hidden"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-1">
-              {links.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`block px-3 py-3 rounded-md text-base font-medium ${
-                      isActive ? 'text-emas bg-white/5' : 'text-krem hover:text-emas hover:bg-white/5'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-            </div>
-          </motion.div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] md:hidden"
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-[280px] bg-cokelat/80 backdrop-blur-xl border-l border-white/10 shadow-2xl z-[70] md:hidden flex flex-col"
+            >
+              <div className="flex justify-end p-6 border-b border-white/10">
+                <button onClick={() => setIsOpen(false)} className="text-krem hover:text-emas transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
+                  <X size={24} />
+                </button>
+              </div>
+              <div className="flex flex-col px-6 py-8 space-y-4 overflow-y-auto">
+                {links.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`block px-4 py-3 rounded-2xl text-lg font-medium transition-all ${
+                        isActive ? 'text-cokelat bg-emas shadow-lg shadow-emas/20' : 'text-krem hover:text-emas hover:bg-white/5 border border-transparent hover:border-emas/20'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>

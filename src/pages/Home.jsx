@@ -78,7 +78,7 @@ const Home = () => {
               <span className="w-2 h-2 rounded-full bg-emas animate-pulse"></span>
               <span className="text-sm font-bold tracking-widest uppercase">Pesona Jawa Barat</span>
             </div>
-            <h1 className="font-playfair text-6xl md:text-8xl lg:text-9xl text-white font-bold mb-6 drop-shadow-2xl leading-tight">
+            <h1 className="font-playfair text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-white font-bold mb-6 drop-shadow-2xl leading-tight">
               Budaya <br className="md:hidden" />
               <span className="text-emas">Karawang</span>
             </h1>
