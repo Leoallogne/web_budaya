@@ -9,27 +9,36 @@ const Wisata = () => {
     { nama: "Santai di Pusat Kota", deskripsi: "Bermain di Alun-alun Karawang dilanjutkan menikmati wisata air Situ Cipule yang sejuk.", waktu: "Akhir Pekan" }
   ];
 
+  // Gambar dikurasi statis Unsplash (Menghindari broken links)
+  const wisataImages = {
+    1: "https://images.unsplash.com/photo-1584852926771-4dc791bcf12c?q=80&w=800&auto=format&fit=crop", // Monumen Rengasdengklok
+    2: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop", // Pantai Tanjung Pakis
+    3: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=800&auto=format&fit=crop", // Candi Batujaya
+    4: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800&auto=format&fit=crop", // Situ Cipule
+    5: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=800&auto=format&fit=crop"  // Alun-alun Karawang
+  };
+
   return (
     <div className="bg-krem min-h-screen">
       
       {/* 1. HERO SECTION */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden py-16 md:py-0">
         <div className="absolute inset-0 bg-cokelat">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-cokelat/80 via-cokelat/50 to-krem"></div>
         </div>
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-6 md:mt-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="flex justify-center mb-6">
               <div className="p-4 bg-emas/20 backdrop-blur-md rounded-full text-emas border border-emas/30 shadow-2xl">
-                <Compass size={48} />
+                <Compass size={40} md={48} />
               </div>
             </div>
             <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-bold mb-6 drop-shadow-2xl">
               Wisata <span className="text-emas">Budaya</span>
             </h1>
-            <p className="text-lg md:text-2xl text-white/90 font-jakarta max-w-3xl mx-auto leading-relaxed shadow-sm">
+            <p className="text-base md:text-2xl text-white/90 font-jakarta max-w-3xl mx-auto leading-relaxed shadow-sm">
               Eksplorasi keindahan alam pesisir, situs purbakala bernilai tinggi, hingga tata kota modern yang ramah keluarga.
             </p>
           </motion.div>
@@ -37,38 +46,38 @@ const Wisata = () => {
       </section>
 
       {/* 2. RUTE REKOMENDASI (NEW) */}
-      <section className="py-24 bg-krem relative -mt-20 z-20">
+      <section className="py-16 md:py-24 bg-krem relative -mt-10 sm:-mt-20 z-20">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="bg-white rounded-[40px] shadow-2xl p-8 md:p-12 border border-emas/20">
-            <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="bg-white rounded-[40px] shadow-2xl p-6 sm:p-8 md:p-12 border border-emas/20">
+            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
               <motion.div 
                 initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                className="md:w-1/3"
+                className="lg:w-1/3 text-center lg:text-left w-full"
               >
-                <h2 className="text-hijau font-bold tracking-widest uppercase text-sm mb-2 flex items-center gap-2">
+                <h2 className="text-hijau font-bold tracking-widest uppercase text-xs md:text-sm mb-2 flex items-center justify-center lg:justify-start gap-2">
                   <Map size={18} /> Rute Perjalanan
                 </h2>
-                <h3 className="font-playfair text-4xl font-bold text-cokelat mb-4">Rekomendasi Itinerary</h3>
-                <p className="text-cokelat/70 leading-relaxed mb-6">
+                <h3 className="font-playfair text-3xl md:text-4xl font-bold text-cokelat mb-4">Rekomendasi Itinerary</h3>
+                <p className="text-cokelat/70 text-sm md:text-base leading-relaxed mb-6">
                   Maksimalkan waktu liburan Anda dengan mengikuti rute perjalanan yang dirancang khusus untuk pengalaman terbaik di Karawang.
                 </p>
-                <button className="bg-cokelat text-krem px-6 py-3 rounded-full font-bold hover:bg-emas transition-colors inline-flex items-center gap-2">
+                <button className="bg-cokelat text-krem px-6 py-3.5 rounded-full font-bold w-full sm:w-auto hover:bg-emas transition-colors inline-flex items-center justify-center gap-2">
                   Unduh Panduan <Navigation size={18} />
                 </button>
               </motion.div>
 
-              <div className="md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
                 {ruteWisata.map((rute, index) => (
                   <motion.div 
                     key={index}
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.2 }}
-                    className="bg-krem p-6 rounded-3xl border border-transparent hover:border-emas/30 hover:shadow-lg transition-all"
+                    className="bg-krem p-6 rounded-3xl border border-transparent hover:border-emas/30 hover:shadow-lg transition-all text-center sm:text-left"
                   >
                     <span className="inline-block bg-emas/20 text-cokelat text-xs font-bold px-3 py-1 rounded-full mb-4">
                       {rute.waktu}
                     </span>
                     <h4 className="font-bold text-lg text-hijau mb-2">{rute.nama}</h4>
-                    <p className="text-cokelat/70 text-sm leading-relaxed">{rute.deskripsi}</p>
+                    <p className="text-cokelat/70 text-xs md:text-sm leading-relaxed">{rute.deskripsi}</p>
                   </motion.div>
                 ))}
               </div>
@@ -78,15 +87,15 @@ const Wisata = () => {
       </section>
 
       {/* 3. DESTINASI GRID (ENHANCED) */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-emas font-bold tracking-widest uppercase text-sm mb-2">Semua Destinasi</h2>
-            <h3 className="font-playfair text-4xl md:text-5xl font-bold text-cokelat mb-6">Daftar Tempat Wisata</h3>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 md:mb-16">
+            <h2 className="text-emas font-bold tracking-widest uppercase text-xs md:text-sm mb-2">Semua Destinasi</h2>
+            <h3 className="font-playfair text-3xl md:text-5xl font-bold text-cokelat mb-6">Daftar Tempat Wisata</h3>
             <div className="w-24 h-1 bg-hijau mx-auto rounded-full mb-6"></div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {dataWisata.map((item, index) => (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -96,9 +105,9 @@ const Wisata = () => {
                 key={item.id}
                 className="bg-krem rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl border border-transparent hover:border-emas/20 flex flex-col group transition-all"
               >
-                <div className="h-72 relative overflow-hidden">
+                <div className="h-64 sm:h-72 relative overflow-hidden">
                   <img 
-                    src={`https://source.unsplash.com/800x600/?landmark,indonesia&sig=${item.id + 300}`}
+                    src={wisataImages[item.id] || "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=800&auto=format&fit=crop"}
                     alt={item.nama}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?q=80&w=800&auto=format&fit=crop"; }}
@@ -116,15 +125,15 @@ const Wisata = () => {
                   </div>
 
                   <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="font-playfair text-3xl font-bold mb-2">{item.nama}</h3>
-                    <div className="flex items-center gap-2 text-krem/90 text-sm font-medium">
+                    <h3 className="font-playfair text-2xl sm:text-3xl font-bold mb-2">{item.nama}</h3>
+                    <div className="flex items-center gap-2 text-krem/90 text-xs sm:text-sm font-medium">
                       <MapPin size={16} className="text-emas" /> {item.lokasi}
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-8 flex flex-col flex-grow bg-white">
-                  <p className="text-cokelat/80 leading-relaxed mb-8 flex-grow">
+                <div className="p-6 md:p-8 flex flex-col flex-grow bg-white">
+                  <p className="text-cokelat/80 text-sm md:text-base leading-relaxed mb-6 md:mb-8 flex-grow">
                     {item.deskripsi}
                   </p>
                   <a 
